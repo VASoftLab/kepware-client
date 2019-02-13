@@ -16,5 +16,18 @@ namespace KClient
         {
             InitializeComponent();
         }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to close the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }
