@@ -32,12 +32,12 @@
             this.buttonConnect = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBoxDevice1 = new System.Windows.Forms.GroupBox();
-            this.labelRamp1 = new System.Windows.Forms.Label();
-            this.textBoxRamp1 = new System.Windows.Forms.TextBox();
-            this.textBoxRandom1 = new System.Windows.Forms.TextBox();
-            this.labelRandom1 = new System.Windows.Forms.Label();
             this.textBoxSin1 = new System.Windows.Forms.TextBox();
             this.labelSin1 = new System.Windows.Forms.Label();
+            this.textBoxRandom1 = new System.Windows.Forms.TextBox();
+            this.labelRandom1 = new System.Windows.Forms.Label();
+            this.textBoxRamp1 = new System.Windows.Forms.TextBox();
+            this.labelRamp1 = new System.Windows.Forms.Label();
             this.groupBoxDevice2 = new System.Windows.Forms.GroupBox();
             this.textBoxSin2 = new System.Windows.Forms.TextBox();
             this.labelSin2 = new System.Windows.Forms.Label();
@@ -60,6 +60,8 @@
             this.textBoxRamp4 = new System.Windows.Forms.TextBox();
             this.labelRamp4 = new System.Windows.Forms.Label();
             this.buttonSettings = new System.Windows.Forms.Button();
+            this.buttonCheckConnection = new System.Windows.Forms.Button();
+            this.labelServerState = new System.Windows.Forms.Label();
             this.groupBoxDevice1.SuspendLayout();
             this.groupBoxDevice2.SuspendLayout();
             this.groupBoxDevice3.SuspendLayout();
@@ -71,10 +73,11 @@
             this.buttonConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonConnect.Location = new System.Drawing.Point(12, 322);
             this.buttonConnect.Name = "buttonConnect";
-            this.buttonConnect.Size = new System.Drawing.Size(75, 23);
+            this.buttonConnect.Size = new System.Drawing.Size(127, 23);
             this.buttonConnect.TabIndex = 0;
             this.buttonConnect.Text = "CONNECT";
             this.buttonConnect.UseVisualStyleBackColor = true;
+            this.buttonConnect.Click += new System.EventHandler(this.buttonConnect_Click);
             // 
             // buttonClose
             // 
@@ -103,21 +106,21 @@
             this.groupBoxDevice1.TabStop = false;
             this.groupBoxDevice1.Text = "DEVICE 1";
             // 
-            // labelRamp1
+            // textBoxSin1
             // 
-            this.labelRamp1.AutoSize = true;
-            this.labelRamp1.Location = new System.Drawing.Point(13, 23);
-            this.labelRamp1.Name = "labelRamp1";
-            this.labelRamp1.Size = new System.Drawing.Size(44, 13);
-            this.labelRamp1.TabIndex = 0;
-            this.labelRamp1.Text = "Ramp 1";
+            this.textBoxSin1.Location = new System.Drawing.Point(13, 118);
+            this.textBoxSin1.Name = "textBoxSin1";
+            this.textBoxSin1.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSin1.TabIndex = 5;
             // 
-            // textBoxRamp1
+            // labelSin1
             // 
-            this.textBoxRamp1.Location = new System.Drawing.Point(13, 39);
-            this.textBoxRamp1.Name = "textBoxRamp1";
-            this.textBoxRamp1.Size = new System.Drawing.Size(100, 20);
-            this.textBoxRamp1.TabIndex = 1;
+            this.labelSin1.AutoSize = true;
+            this.labelSin1.Location = new System.Drawing.Point(13, 102);
+            this.labelSin1.Name = "labelSin1";
+            this.labelSin1.Size = new System.Drawing.Size(31, 13);
+            this.labelSin1.TabIndex = 4;
+            this.labelSin1.Text = "Sin 1";
             // 
             // textBoxRandom1
             // 
@@ -135,21 +138,21 @@
             this.labelRandom1.TabIndex = 2;
             this.labelRandom1.Text = "Random 1";
             // 
-            // textBoxSin1
+            // textBoxRamp1
             // 
-            this.textBoxSin1.Location = new System.Drawing.Point(13, 118);
-            this.textBoxSin1.Name = "textBoxSin1";
-            this.textBoxSin1.Size = new System.Drawing.Size(100, 20);
-            this.textBoxSin1.TabIndex = 5;
+            this.textBoxRamp1.Location = new System.Drawing.Point(13, 39);
+            this.textBoxRamp1.Name = "textBoxRamp1";
+            this.textBoxRamp1.Size = new System.Drawing.Size(100, 20);
+            this.textBoxRamp1.TabIndex = 1;
             // 
-            // labelSin1
+            // labelRamp1
             // 
-            this.labelSin1.AutoSize = true;
-            this.labelSin1.Location = new System.Drawing.Point(13, 102);
-            this.labelSin1.Name = "labelSin1";
-            this.labelSin1.Size = new System.Drawing.Size(31, 13);
-            this.labelSin1.TabIndex = 4;
-            this.labelSin1.Text = "Sin 1";
+            this.labelRamp1.AutoSize = true;
+            this.labelRamp1.Location = new System.Drawing.Point(13, 23);
+            this.labelRamp1.Name = "labelRamp1";
+            this.labelRamp1.Size = new System.Drawing.Size(44, 13);
+            this.labelRamp1.TabIndex = 0;
+            this.labelRamp1.Text = "Ramp 1";
             // 
             // groupBoxDevice2
             // 
@@ -346,18 +349,40 @@
             // buttonSettings
             // 
             this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSettings.Location = new System.Drawing.Point(93, 322);
+            this.buttonSettings.Location = new System.Drawing.Point(145, 322);
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(75, 23);
             this.buttonSettings.TabIndex = 7;
             this.buttonSettings.Text = "SETTINGS";
             this.buttonSettings.UseVisualStyleBackColor = true;
             // 
+            // buttonCheckConnection
+            // 
+            this.buttonCheckConnection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonCheckConnection.Location = new System.Drawing.Point(226, 322);
+            this.buttonCheckConnection.Name = "buttonCheckConnection";
+            this.buttonCheckConnection.Size = new System.Drawing.Size(165, 23);
+            this.buttonCheckConnection.TabIndex = 8;
+            this.buttonCheckConnection.Text = "CHECK CONNECTION";
+            this.buttonCheckConnection.UseVisualStyleBackColor = true;
+            this.buttonCheckConnection.Click += new System.EventHandler(this.buttonCheckConnection_Click);
+            // 
+            // labelServerState
+            // 
+            this.labelServerState.AutoSize = true;
+            this.labelServerState.Location = new System.Drawing.Point(12, 306);
+            this.labelServerState.Name = "labelServerState";
+            this.labelServerState.Size = new System.Drawing.Size(92, 13);
+            this.labelServerState.TabIndex = 9;
+            this.labelServerState.Text = "SERVER STATE:";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(551, 357);
+            this.Controls.Add(this.labelServerState);
+            this.Controls.Add(this.buttonCheckConnection);
             this.Controls.Add(this.buttonSettings);
             this.Controls.Add(this.groupBoxDevice4);
             this.Controls.Add(this.groupBoxDevice3);
@@ -381,6 +406,7 @@
             this.groupBoxDevice4.ResumeLayout(false);
             this.groupBoxDevice4.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -417,6 +443,8 @@
         private System.Windows.Forms.TextBox textBoxRamp4;
         private System.Windows.Forms.Label labelRamp4;
         private System.Windows.Forms.Button buttonSettings;
+        private System.Windows.Forms.Button buttonCheckConnection;
+        private System.Windows.Forms.Label labelServerState;
     }
 }
 

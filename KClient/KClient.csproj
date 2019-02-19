@@ -36,6 +36,9 @@
     <ApplicationIcon>MindMap.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Kepware.ClientAce.OpcClient">
+      <HintPath>C:\Program Files (x86)\Kepware Technologies\ClientAce\V4.0\Kepware.ClientAce.OpcClient.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,6 +58,8 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="OPCTag.cs" />
+    <Compile Include="OPCTagType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormMain.resx">
