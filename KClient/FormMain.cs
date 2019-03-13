@@ -34,15 +34,19 @@ namespace KClient
 
         public bool IsConnected { get { return DAServer.IsConnected; } }
 
+        public Settings settings = new Settings();
+
         public FormMain()
         {
             InitializeComponent();
+
+            settings.Load();
 
             KeepAliveTime = 1000;
             RetryAfterConnectionError = true;
             RetryInitialConnection = false;
             ClientName = "OPCClient";
-            URL = "opcda://localhost/Kepware.KEPServerEX.V6/";
+            URL = settings.OPCServerURL;
 
             SubscribeToOPCDAServerEvents(DAServer_StateChanged, DAServer_DataChanged);
         }
@@ -145,17 +149,17 @@ namespace KClient
             List<OPCTag> TagList = new List<OPCTag>();
             TagList.Add(new OPCTag()
             {
-                Name = "Simulation Examples.Functions.Ramp1",
+                Name = settings.TagRamp1,
                 Type = OPCTagType.Char
             });
             TagList.Add(new OPCTag()
             {
-                Name = "Simulation Examples.Functions.Random1",
+                Name = settings.TagRandom1,
                 Type = OPCTagType.Long
             });
             TagList.Add(new OPCTag()
             {
-                Name = "Simulation Examples.Functions.Sine1",
+                Name = settings.TagSin1,
                 Type = OPCTagType.Float
             });
 
@@ -273,6 +277,15 @@ namespace KClient
                         textBoxSin1.Text = item.Value.ToString();
                         break; 
                 }
+            }
+        }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            FormSettings frmSettings = new FormSettings();
+            if (frmSettings.ShowDialog() == DialogResult.OK)
+            {
+                settings.Load();
             }
         }
     }
