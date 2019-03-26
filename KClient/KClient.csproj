@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,6 +65,12 @@
     <Compile Include="FormSettings.Designer.cs">
       <DependentUpon>FormSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="OPCPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OPCPanel.Designer.cs">
+      <DependentUpon>OPCPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="OPCTag.cs" />
     <Compile Include="OPCTagType.cs" />
     <Compile Include="Program.cs" />
@@ -74,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettings.resx">
       <DependentUpon>FormSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPCPanel.resx">
+      <DependentUpon>OPCPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -13,6 +13,7 @@ namespace KClient
 {
     public partial class FormMain : Form
     {
+        const int MAX_POINT_COUNT = 20;
         // Global variables
         private string URL;
         private int KeepAliveTime;
@@ -36,6 +37,8 @@ namespace KClient
 
         public Settings settings = new Settings();
 
+        List<Double> data = new List<double>();
+
         public FormMain()
         {
             InitializeComponent();
@@ -49,6 +52,7 @@ namespace KClient
             URL = settings.OPCServerURL;
 
             SubscribeToOPCDAServerEvents(DAServer_StateChanged, DAServer_DataChanged);
+            
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -136,6 +140,9 @@ namespace KClient
             {
                 ConnectOPCServer(true); // Connect to OPC Server
                 buttonConnect.Text = "DISCONNECT";
+                opcPanel1.SinChartPoints.Clear();
+                opcPanel1.RampChartPoints.Clear();
+                opcPanel1.RandomChartPoints.Clear();                
             }
             else
             {
@@ -214,8 +221,6 @@ namespace KClient
 
         public void SubscribeToOPCDAServerEvents(DaServerMgt.ServerStateChangedEventHandler DAServer_StateChanged, DaServerMgt.DataChangedEventHandler DAServer_DataChanged)
         {
-            // DAServer.ReadCompleted += new Kepware.ClientAce.OpcDaClient.DaServerMgt.ReadCompletedEventHandler(DAServer_ReadCompleted);
-            // DAServer.WriteCompleted += new Kepware.ClientAce.OpcDaClient.DaServerMgt.ReadCompletedEventHandler(DAServer_WriteCompleted);
             DAServer.ServerStateChanged += new Kepware.ClientAce.OpcDaClient.DaServerMgt.ServerStateChangedEventHandler(DAServer_StateChanged);
             DAServer.DataChanged += new DaServerMgt.DataChangedEventHandler(DAServer_DataChanged);
         }
@@ -269,12 +274,25 @@ namespace KClient
                 {
                     case 0:
                         textBoxRamp1.Text = item.Value.ToString();
+                        opcPanel1.RampValue = Convert.ToDouble(item.Value);
+                        data.Add(opcPanel1.RampValue);
+                        if (opcPanel1.RampChartPoints.Count > MAX_POINT_COUNT)
+                            opcPanel1.RampChartPoints.RemoveAt(0);
+                        opcPanel1.RampChartPoints.Add(opcPanel1.RampValue);                        
                         break;
                     case 1:
                         textBoxRandom1.Text = item.Value.ToString();
+                        opcPanel1.RandomValue = Convert.ToDouble(item.Value);
+                        if (opcPanel1.RandomChartPoints.Count > MAX_POINT_COUNT)
+                            opcPanel1.RandomChartPoints.RemoveAt(0);
+                        opcPanel1.RandomChartPoints.Add(opcPanel1.RandomValue);
                         break;
                     case 2:
                         textBoxSin1.Text = item.Value.ToString();
+                        opcPanel1.SinValue = Convert.ToDouble(item.Value);
+                        if (opcPanel1.SinChartPoints.Count > MAX_POINT_COUNT)
+                            opcPanel1.SinChartPoints.RemoveAt(0);
+                        opcPanel1.SinChartPoints.Add(opcPanel1.SinValue);
                         break; 
                 }
             }
@@ -287,6 +305,14 @@ namespace KClient
             {
                 settings.Load();
             }
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            opcPanel1.SinTitle = "Sin 1";
+            opcPanel1.RampTitle = "Ramp 1";
+            opcPanel1.RandomTitle = "Random 1";
+            opcPanel1.PanelTitle = "OPC Panel 1";
         }
     }
 }

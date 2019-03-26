@@ -62,6 +62,7 @@
             this.buttonSettings = new System.Windows.Forms.Button();
             this.buttonCheckConnection = new System.Windows.Forms.Button();
             this.labelServerState = new System.Windows.Forms.Label();
+            this.opcPanel1 = new KClient.OPCPanel();
             this.groupBoxDevice1.SuspendLayout();
             this.groupBoxDevice2.SuspendLayout();
             this.groupBoxDevice3.SuspendLayout();
@@ -71,7 +72,7 @@
             // buttonConnect
             // 
             this.buttonConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonConnect.Location = new System.Drawing.Point(12, 322);
+            this.buttonConnect.Location = new System.Drawing.Point(12, 469);
             this.buttonConnect.Name = "buttonConnect";
             this.buttonConnect.Size = new System.Drawing.Size(127, 23);
             this.buttonConnect.TabIndex = 0;
@@ -82,7 +83,7 @@
             // buttonClose
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonClose.Location = new System.Drawing.Point(464, 322);
+            this.buttonClose.Location = new System.Drawing.Point(464, 469);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(75, 23);
             this.buttonClose.TabIndex = 1;
@@ -349,7 +350,7 @@
             // buttonSettings
             // 
             this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSettings.Location = new System.Drawing.Point(145, 322);
+            this.buttonSettings.Location = new System.Drawing.Point(145, 469);
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(75, 23);
             this.buttonSettings.TabIndex = 7;
@@ -360,7 +361,7 @@
             // buttonCheckConnection
             // 
             this.buttonCheckConnection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonCheckConnection.Location = new System.Drawing.Point(226, 322);
+            this.buttonCheckConnection.Location = new System.Drawing.Point(226, 469);
             this.buttonCheckConnection.Name = "buttonCheckConnection";
             this.buttonCheckConnection.Size = new System.Drawing.Size(165, 23);
             this.buttonCheckConnection.TabIndex = 8;
@@ -371,17 +372,32 @@
             // labelServerState
             // 
             this.labelServerState.AutoSize = true;
-            this.labelServerState.Location = new System.Drawing.Point(12, 306);
+            this.labelServerState.Location = new System.Drawing.Point(12, 453);
             this.labelServerState.Name = "labelServerState";
             this.labelServerState.Size = new System.Drawing.Size(92, 13);
             this.labelServerState.TabIndex = 9;
             this.labelServerState.Text = "SERVER STATE:";
             // 
+            // opcPanel1
+            // 
+            this.opcPanel1.Location = new System.Drawing.Point(12, 178);
+            this.opcPanel1.Name = "opcPanel1";
+            this.opcPanel1.PanelTitle = "OPC Panel 1";
+            this.opcPanel1.RampTitle = "Ramp 1";
+            this.opcPanel1.RampValue = 0D;
+            this.opcPanel1.RandomTitle = "Random 1";
+            this.opcPanel1.RandomValue = 0D;
+            this.opcPanel1.SinTitle = "Sin 1";
+            this.opcPanel1.SinValue = 0D;
+            this.opcPanel1.Size = new System.Drawing.Size(153, 246);
+            this.opcPanel1.TabIndex = 10;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 357);
+            this.ClientSize = new System.Drawing.Size(551, 504);
+            this.Controls.Add(this.opcPanel1);
             this.Controls.Add(this.labelServerState);
             this.Controls.Add(this.buttonCheckConnection);
             this.Controls.Add(this.buttonSettings);
@@ -398,6 +414,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KClient";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.groupBoxDevice1.ResumeLayout(false);
             this.groupBoxDevice1.PerformLayout();
             this.groupBoxDevice2.ResumeLayout(false);
@@ -446,6 +463,7 @@
         private System.Windows.Forms.Button buttonSettings;
         private System.Windows.Forms.Button buttonCheckConnection;
         private System.Windows.Forms.Label labelServerState;
+        private OPCPanel opcPanel1;
     }
 }
 
