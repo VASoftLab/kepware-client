@@ -380,6 +380,7 @@
             // 
             // opcPanel1
             // 
+            this.opcPanel1.Indicator = KClient.IndicatorType.Red;
             this.opcPanel1.Location = new System.Drawing.Point(12, 178);
             this.opcPanel1.Name = "opcPanel1";
             this.opcPanel1.PanelTitle = "OPC Panel 1";

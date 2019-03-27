@@ -26,6 +26,10 @@ namespace KClient
 
         public IndicatorType Indicator
         {
+            get
+            {
+                return Indicator_;
+            }
             set
             {
                 Indicator_ = value;
@@ -34,7 +38,7 @@ namespace KClient
                     case IndicatorType.Blue:
                         pictureBoxIndicator.Image = Properties.Resources.square_blue;
                         break;
-                    case IndicatorType.Greed:
+                    case IndicatorType.Green:
                         pictureBoxIndicator.Image = Properties.Resources.square_green;
                         break;
                     case IndicatorType.Red:

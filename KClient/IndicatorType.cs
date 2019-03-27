@@ -3,7 +3,7 @@
     public enum IndicatorType : int
     {
         Red = 1,
-        Greed = 2,
+        Green = 2,
         Blue = 3
     }
 }
