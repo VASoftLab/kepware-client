@@ -28,24 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBoxDevice = new System.Windows.Forms.GroupBox();
+            this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.textBoxSin = new System.Windows.Forms.TextBox();
             this.labelSin = new System.Windows.Forms.Label();
             this.textBoxRandom = new System.Windows.Forms.TextBox();
             this.labelRandom = new System.Windows.Forms.Label();
             this.textBoxRamp = new System.Windows.Forms.TextBox();
             this.labelRamp = new System.Windows.Forms.Label();
-            this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.pictureBoxIndicator = new System.Windows.Forms.PictureBox();
             this.groupBoxDevice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIndicator)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxDevice
             // 
+            this.groupBoxDevice.Controls.Add(this.pictureBoxIndicator);
             this.groupBoxDevice.Controls.Add(this.chart);
             this.groupBoxDevice.Controls.Add(this.textBoxSin);
             this.groupBoxDevice.Controls.Add(this.labelSin);
@@ -60,6 +63,31 @@
             this.groupBoxDevice.TabIndex = 3;
             this.groupBoxDevice.TabStop = false;
             this.groupBoxDevice.Text = "DEVICE";
+            // 
+            // chart
+            // 
+            chartArea3.AxisX.LabelStyle.Enabled = false;
+            chartArea3.AxisX.MajorGrid.Enabled = false;
+            chartArea3.AxisY.LabelStyle.Enabled = false;
+            chartArea3.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea3);
+            this.chart.Location = new System.Drawing.Point(13, 150);
+            this.chart.Name = "chart";
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Name = "Series1";
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Name = "Series2";
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Name = "Series3";
+            this.chart.Series.Add(series7);
+            this.chart.Series.Add(series8);
+            this.chart.Series.Add(series9);
+            this.chart.Size = new System.Drawing.Size(99, 69);
+            this.chart.TabIndex = 6;
+            this.chart.Text = "chart1";
             // 
             // textBoxSin
             // 
@@ -109,30 +137,13 @@
             this.labelRamp.TabIndex = 0;
             this.labelRamp.Text = "Ramp";
             // 
-            // chartSin
+            // pictureBoxIndicator
             // 
-            chartArea1.AxisX.LabelStyle.Enabled = false;
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisY.LabelStyle.Enabled = false;
-            chartArea1.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea1);
-            this.chart.Location = new System.Drawing.Point(13, 150);
-            this.chart.Name = "chartSin";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Name = "Series1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Name = "Series2";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Name = "Series3";
-            this.chart.Series.Add(series1);
-            this.chart.Series.Add(series2);
-            this.chart.Series.Add(series3);
-            this.chart.Size = new System.Drawing.Size(99, 69);
-            this.chart.TabIndex = 6;
-            this.chart.Text = "chart1";
+            this.pictureBoxIndicator.Location = new System.Drawing.Point(83, 15);
+            this.pictureBoxIndicator.Name = "pictureBoxIndicator";
+            this.pictureBoxIndicator.Size = new System.Drawing.Size(29, 18);
+            this.pictureBoxIndicator.TabIndex = 7;
+            this.pictureBoxIndicator.TabStop = false;
             // 
             // OPCPanel
             // 
@@ -144,6 +155,7 @@
             this.groupBoxDevice.ResumeLayout(false);
             this.groupBoxDevice.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIndicator)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -158,5 +170,6 @@
         private System.Windows.Forms.TextBox textBoxRamp;
         private System.Windows.Forms.Label labelRamp;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
+        private System.Windows.Forms.PictureBox pictureBoxIndicator;
     }
 }

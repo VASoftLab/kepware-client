@@ -22,6 +22,28 @@ namespace KClient
         private Double SinValue_;
         private Double RandomValue_;
 
+        private IndicatorType Indicator_;
+
+        public IndicatorType Indicator
+        {
+            set
+            {
+                Indicator_ = value;
+                switch (Indicator_)
+                {
+                    case IndicatorType.Blue:
+                        pictureBoxIndicator.Image = Properties.Resources.square_blue;
+                        break;
+                    case IndicatorType.Greed:
+                        pictureBoxIndicator.Image = Properties.Resources.square_green;
+                        break;
+                    case IndicatorType.Red:
+                        pictureBoxIndicator.Image = Properties.Resources.square_red;
+                        break;
+                }                
+            }
+        }
+
         public DataPointCollection SinChartPoints
         {
             get { return chart.Series[0].Points; }

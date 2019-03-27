@@ -72,6 +72,7 @@
       <DependentUpon>OPCPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="OPCTag.cs" />
+    <Compile Include="IndicatorType.cs" />
     <Compile Include="OPCTagType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -108,6 +110,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="img\square_blue.png" />
+    <None Include="img\square_green.png" />
+    <None Include="img\square_red.png" />
     <Content Include="MindMap.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

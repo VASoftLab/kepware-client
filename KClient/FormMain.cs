@@ -293,6 +293,10 @@ namespace KClient
                         if (opcPanel1.SinChartPoints.Count > MAX_POINT_COUNT)
                             opcPanel1.SinChartPoints.RemoveAt(0);
                         opcPanel1.SinChartPoints.Add(opcPanel1.SinValue);
+                        if (opcPanel1.SinValue > 0)
+                            opcPanel1.Indicator = IndicatorType.Red;
+                        else
+                            opcPanel1.Indicator = IndicatorType.Blue;
                         break; 
                 }
             }
